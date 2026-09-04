@@ -30,45 +30,25 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
+#ifndef KEYBOARDWINDOW_H
+#define KEYBOARDWINDOW_H
 
-
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
-
-#include <QtWidgets/QMainWindow>
-
-class MonstaWidget;
-class QPushButton;
+#include <QDialog>
 
 namespace Ui {
-    class MainWindow;
+class KeyboardWindow;
 }
 
-class MainWindow : public QMainWindow {
+class KeyboardWindow : public QDialog
+{
     Q_OBJECT
+
 public:
-    MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-
-protected:
-    void changeEvent(QEvent *e);
-
-private slots:
-    void openLicenseWindow();
-    void closeSimulator();
-    void openVersionWindow();
-    void windowSmall();
-    void windowMedium();
-    void windowLarge();
-    void openKeyboardWindow();
+    explicit KeyboardWindow(QWidget *parent = nullptr);
+    ~KeyboardWindow();
 
 private:
-    Ui::MainWindow *ui;
-    MonstaWidget* m_MonstaWidget;
-    QPushButton* m_StartButton;
-    QPushButton* m_StopButton;
-    QPushButton* m_GridButton;
-    
+    Ui::KeyboardWindow *ui;
 };
 
-#endif // MAINWINDOW_H
+#endif // KEYBOARDWINDOW_H

@@ -51,6 +51,8 @@ add_executable(monsta_sim
     GUI/licensepage.cpp
     GUI/versionpage.h
     GUI/versionpage.cpp
+    GUI/keyboardwindow.cpp
+    GUI/keyboardwindow.h
     ${MONSTA_MOCS_HDRS}
 )
 target_include_directories(monsta_sim PUBLIC

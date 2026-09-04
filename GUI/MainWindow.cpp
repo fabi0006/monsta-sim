@@ -41,6 +41,7 @@
 #include <iostream>
 #include "licensepage.h"
 #include "versionpage.h"
+#include "keyboardwindow.h"
 
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -67,6 +68,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->actionSmall, &QAction::triggered, this, &MainWindow::windowSmall);
     connect(ui->actionMedium, &QAction::triggered, this, &MainWindow::windowMedium);
     connect(ui->actionLarge, &QAction::triggered, this, &MainWindow::windowLarge);
+    connect(ui->actionKeyboard, &QAction::triggered, this, &MainWindow::openKeyboardWindow);
     connect(ui->actionStart, &QAction::triggered, m_MonstaWidget, &MonstaWidget::startButtonClicked);
     connect(ui->actionStop, &QAction::triggered, m_MonstaWidget, &MonstaWidget::stopButtonClicked);
     connect(ui->actionGrid, &QAction::triggered, m_MonstaWidget, &MonstaWidget::gridButtonClicked);
@@ -128,4 +130,10 @@ void MainWindow::windowMedium() {
 
 void MainWindow::windowLarge() {
     this->setFixedSize(1250, 1050);
+}
+
+void MainWindow::openKeyboardWindow() {
+    KeyboardWindow *keywin = new KeyboardWindow(this);
+    keywin->setAttribute(Qt::WA_DeleteOnClose); 
+    keywin->show();
 }

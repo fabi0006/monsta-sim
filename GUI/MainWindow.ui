@@ -75,7 +75,6 @@
     </property>
     <addaction name="separator"/>
     <addaction name="actionKeyboard"/>
-    <addaction name="actionManual"/>
    </widget>
    <addaction name="menuSimulator"/>
    <addaction name="menuView"/>
