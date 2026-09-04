@@ -51,6 +51,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->verticalLayout->setSizeConstraint(QLayout::SetFixedSize);
     ui->verticalLayout->addWidget(m_MonstaWidget);
     m_MonstaWidget->setFocus();
+    m_MonstaWidget->startSimulation();
 
     m_StartButton = new QPushButton("Start");
     m_StopButton = new QPushButton("Stop");

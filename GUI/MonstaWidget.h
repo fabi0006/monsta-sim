@@ -87,6 +87,7 @@ public slots:
     void stopButtonClicked();
     void gridButtonClicked();
     void nextControlStep();
+    void startSimulation();
 
 protected:
     bool event(QEvent *e);

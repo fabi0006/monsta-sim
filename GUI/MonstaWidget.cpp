@@ -93,6 +93,18 @@ void MonstaWidget::startButtonClicked()
     }
 }
 
+void MonstaWidget::startSimulation()
+{
+    this->setFocus();
+
+    //std::cout << "start" << std::endl;
+    //std::cout << "Thread in gui: " << thread() << std::endl;
+
+    if(m_State == STOPPED)
+    {
+        m_State = WAIT_FOR_START;
+    }
+}
 
 void MonstaWidget::stopButtonClicked()
 {
