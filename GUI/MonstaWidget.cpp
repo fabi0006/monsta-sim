@@ -1,7 +1,7 @@
 /*
  * BSD 3-Clause License
  *
- * Copyright (c) 2010-2025, Viktor Seib
+ * Copyright (c) 2010-2025, Viktor Seib | 2026, Fabian Schneider
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -92,6 +92,7 @@ void MonstaWidget::startButtonClicked()
         m_State = WAIT_FOR_START;
     }
 }
+
 
 void MonstaWidget::stopButtonClicked()
 {

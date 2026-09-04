@@ -32,27 +32,45 @@
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>File</string>
-    </property>
-    <addaction name="actionClose"/>
-   </widget>
    <widget class="QMenu" name="menuSimulator">
     <property name="title">
      <string>Simulator</string>
     </property>
+    <addaction name="actionStart"/>
+    <addaction name="actionStop"/>
+    <addaction name="actionGrid"/>
+    <addaction name="separator"/>
+    <addaction name="actionReset_to_default"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose_2"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
      <string>About</string>
     </property>
+    <addaction name="actionVersion"/>
+    <addaction name="actionLicense"/>
    </widget>
-   <addaction name="menuFile"/>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <widget class="QMenu" name="menuWindow_Size">
+     <property name="title">
+      <string>Window-Size</string>
+     </property>
+     <addaction name="actionSmall"/>
+     <addaction name="actionMedium"/>
+     <addaction name="actionLarge"/>
+     <addaction name="actionFullscreen"/>
+    </widget>
+    <addaction name="menuWindow_Size"/>
+   </widget>
    <addaction name="menuSimulator"/>
+   <addaction name="menuView"/>
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -65,6 +83,61 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionReset_to_default">
+   <property name="text">
+    <string>Reset to default</string>
+   </property>
+  </action>
+  <action name="actionStart">
+   <property name="text">
+    <string>Start</string>
+   </property>
+  </action>
+  <action name="actionStop">
+   <property name="text">
+    <string>Stop</string>
+   </property>
+  </action>
+  <action name="actionGrid">
+   <property name="text">
+    <string>Grid</string>
+   </property>
+  </action>
+  <action name="actionVersion">
+   <property name="text">
+    <string>Version</string>
+   </property>
+  </action>
+  <action name="actionLicense">
+   <property name="text">
+    <string>License</string>
+   </property>
+  </action>
+  <action name="actionSmall">
+   <property name="text">
+    <string>Small</string>
+   </property>
+  </action>
+  <action name="actionMedium">
+   <property name="text">
+    <string>Medium</string>
+   </property>
+  </action>
+  <action name="actionLarge">
+   <property name="text">
+    <string>Large</string>
+   </property>
+  </action>
+  <action name="actionFullscreen">
+   <property name="text">
+    <string>Fullscreen</string>
+   </property>
+  </action>
+  <action name="actionClose_2">
    <property name="text">
     <string>Close</string>
    </property>

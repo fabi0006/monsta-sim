@@ -47,6 +47,10 @@ add_executable(monsta_sim
     Monsta/games/example.c     # include your game here
     GUI/MonstaWidget.cpp
     GUI/MainWindow.cpp
+    GUI/licensepage.h
+    GUI/licensepage.cpp
+    GUI/versionpage.h
+    GUI/versionpage.cpp
     ${MONSTA_MOCS_HDRS}
 )
 target_include_directories(monsta_sim PUBLIC
