@@ -31,43 +31,25 @@
  *
  */
 
+#ifndef LICENSEPAGE_H
+#define LICENSEPAGE_H
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
-
-#include <QtWidgets/QMainWindow>
-
-class MonstaWidget;
-class QPushButton;
+#include <QDialog>
 
 namespace Ui {
-    class MainWindow;
+class LicensePage;
 }
 
-class MainWindow : public QMainWindow {
+class LicensePage : public QDialog
+{
     Q_OBJECT
+
 public:
-    MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-
-protected:
-    void changeEvent(QEvent *e);
-
-private slots:
-    void openLicenseWindow();
-    void closeSimulator();
-    void openVersionWindow();
-    void windowSmall();
-    void windowMedium();
-    void windowLarge();
+    explicit LicensePage(QWidget *parent = nullptr);
+    ~LicensePage();
 
 private:
-    Ui::MainWindow *ui;
-    MonstaWidget* m_MonstaWidget;
-    QPushButton* m_StartButton;
-    QPushButton* m_StopButton;
-    QPushButton* m_GridButton;
-    
+    Ui::LicensePage *ui;
 };
 
-#endif // MAINWINDOW_H
+#endif // LICENSEPAGE_H

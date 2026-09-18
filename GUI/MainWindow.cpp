@@ -1,7 +1,7 @@
 /*
  * BSD 3-Clause License
  *
- * Copyright (c) 2010-2025, Viktor Seib
+ * Copyright (c) 2010-2025, Viktor Seib | 2026, Fabian Schneider
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -39,6 +39,8 @@
 #include <QKeyEvent>
 #include "MonstaWidget.h"
 #include <iostream>
+#include "licensepage.h"
+#include "versionpage.h"
 
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -58,6 +60,15 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->mainToolBar->addWidget(m_StopButton);
     ui->mainToolBar->addWidget(m_GridButton);
 
+    connect(ui->actionClose_2, &QAction::triggered, this, &MainWindow::closeSimulator);
+    connect(ui->actionLicense, &QAction::triggered, this, &MainWindow::openLicenseWindow);
+    connect(ui->actionVersion, &QAction::triggered, this, &MainWindow::openVersionWindow);
+    connect(ui->actionSmall, &QAction::triggered, this, &MainWindow::windowSmall);
+    connect(ui->actionMedium, &QAction::triggered, this, &MainWindow::windowMedium);
+    connect(ui->actionLarge, &QAction::triggered, this, &MainWindow::windowLarge);
+    connect(ui->actionStart, &QAction::triggered, m_MonstaWidget, &MonstaWidget::startButtonClicked);
+    connect(ui->actionStop, &QAction::triggered, m_MonstaWidget, &MonstaWidget::stopButtonClicked);
+    connect(ui->actionGrid, &QAction::triggered, m_MonstaWidget, &MonstaWidget::gridButtonClicked);
     connect(m_StartButton, SIGNAL(clicked()), m_MonstaWidget,  SLOT(startButtonClicked()));
     connect(m_StopButton, SIGNAL(clicked()), m_MonstaWidget,  SLOT(stopButtonClicked()));
     connect(m_GridButton, SIGNAL(clicked()), m_MonstaWidget,  SLOT(gridButtonClicked()));
@@ -65,7 +76,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     setFixedSize(m_MonstaWidget->width(),
                  m_MonstaWidget->height()+ui->mainToolBar->height()*4
                  );
-
+    
+    
 }
 
 MainWindow::~MainWindow()
@@ -87,4 +99,32 @@ void MainWindow::changeEvent(QEvent *e)
     default:
         break;
     }
+}
+
+void MainWindow::openLicenseWindow() {
+    LicensePage *licPag = new LicensePage(this);
+    licPag->setAttribute(Qt::WA_DeleteOnClose); 
+    licPag->show();
+}
+
+void MainWindow::openVersionWindow() {
+    versionPage *verPag = new versionPage(this);
+    verPag->setAttribute(Qt::WA_DeleteOnClose); 
+    verPag->show();
+}
+
+void MainWindow::closeSimulator() {
+    this->close();
+}
+
+void MainWindow::windowSmall() {
+    this->setFixedSize(1200, 900);
+}
+
+void MainWindow::windowMedium() {
+    this->setFixedSize(1200, 900);
+}
+
+void MainWindow::windowLarge() {
+    this->setFixedSize(1250, 1050);
 }
